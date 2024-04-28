@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Mentions } from 'antd';
 import debounce from 'lodash/debounce';
 
-const App: React.FC = () => {
+const App: React.FC = () => ({
   const [loading, setLoading] = useState(false);
   const [users, setUsers] = useState<{ login: string; avatar_url: string }[]>([]);
   const ref = useRef<string>();
@@ -21,7 +21,7 @@ const App: React.FC = () => {
         setLoading(false);
         setUsers(items.slice(0, 10));
       });
-  };
+  )};
 
   const debounceLoadGithubUsers = useCallback(debounce(loadGithubUsers, 800), []);
 
